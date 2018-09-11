@@ -8,9 +8,9 @@
   <%= f.label :genre_id, 'Genre' %>
   <%= f.collection_select :genre_id, Genre.all, :name, :name %>
   <%= f.label :song_notes_1, 'Note 1' %>
-  <%= f.text_field :song_notes %>
+  <%= f.text_field :notes_content %>
   <%= f.label :song_notes_2, 'Note 2' %>
-  <%= f.text_field :song_notes %>
+  <%= f.text_field :notes_content %>
   <br />
 
   <%= f.submit %>
