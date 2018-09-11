@@ -24,12 +24,8 @@ class Song < ActiveRecord::Base
     @content = content.reject {|c| c.empty?}
 
     @content.each do |content|
-      if self.notes
-        self.notes << Note.create(content: content)
-      else
-        self.notes = []
-        self.notes << Note.create(content: content)
-      end
+      note = Note.find(content)
+      self.notes << note
     end
   end
 
