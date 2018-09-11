@@ -24,7 +24,7 @@ class Song < ActiveRecord::Base
     @content = content.reject {|c| c.empty?}
 
     @content.each do |content|
-      note = Note.find(content)
+      note = Note.find_by(content)
       self.notes << note
     end
   end
