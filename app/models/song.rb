@@ -24,12 +24,11 @@ class Song < ActiveRecord::Base
     @content = content.reject {|c| c.empty?}
 
     @content.each do |content|
-      note = Note.find_or_create_by(content: content)
-      self.notes << note
+      self.notes.build(content: content)
     end
   end
 
   def note_contents
-    self.notes ? self.notes.collect {|n| n.content} : nil
+    self.notes.map(&:content)
   end
 end
